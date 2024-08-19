@@ -18,6 +18,9 @@
 
 // In order to create a raw socket, CAP_NEW_RAW permissions are required. Typically this is reserved for the root user on a linux system.
 
+// TODO better packing of strings into icmp data section.
+// TODO support for arbitrary data sizes
+
 struct icmphdr
 {
 	uint8_t type;
@@ -31,7 +34,7 @@ struct icmphdr
 struct icmp
 {
 	struct icmphdr hdr;
-	uint8_t data[64];
+	uint8_t data[64]; // arbitrary size
 };
 
 int main()
